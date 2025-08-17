@@ -1,0 +1,11 @@
+tensorflow
+numpy
+opencv-python
+matplotlib
+flask
+opendatasets
+scipy
+pillow
+scikit-learn 
+facenet-pytorch
+sort-tracker-py
