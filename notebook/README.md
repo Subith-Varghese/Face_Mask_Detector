@@ -36,17 +36,3 @@ Both models include support for live face mask detection using your webcam.
 
 You’ll find this implementation at the end of both notebooks.
 
----
-
-## 📂 Folder Structure
-
-```bash
-Face-Mask-Detection-Models/
-│
-├── mobilenetv2_using_sigmoid/
-│   ├── face_mask_detection_sigmoid.ipynb
-│   └── mask_detector_sigmoid_best.h5
-│
-├── mobilenetv2_using_softmax/
-│   ├── face_mask_softmax.ipynb
-│   └── mask_detector_best.h5
