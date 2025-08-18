@@ -8,3 +8,7 @@ scipy
 pillow
 scikit-learn 
 facenet-pytorch
+Werkzeug==2.3.7
+itsdangerous==2.1.2
+Jinja2==3.1.2
+MarkupSafe==2.1.3

@@ -4,7 +4,6 @@ from tensorflow.keras.callbacks import ModelCheckpoint, EarlyStopping
 from src.utils.common import save_model
 from src.utils.logger import logger
 import os
-import json
 
 
 class ModelTrainer:
@@ -20,34 +19,37 @@ class ModelTrainer:
         self.model_path = os.path.join(self.model_dir, "mask_detector_best.h5")
 
     def train(self):
-        # Compile with Adam optimizer & custom learning rate
-        self.model.compile(
-            optimizer=Adam(learning_rate=self.init_lr),
-            loss="categorical_crossentropy",
-            metrics=["accuracy"]
-        )
+        try:
+            # Compile with Adam optimizer & custom learning rate
+            self.model.compile(
+                optimizer=Adam(learning_rate=self.init_lr),
+                loss="categorical_crossentropy",
+                metrics=["accuracy"]
+            )
+            logger.info("🚀 Starting training...")
+            # Define callbacks
+            checkpoint = ModelCheckpoint(
+                self.model_path,
+                monitor="val_accuracy",
+                save_best_only=True,
+                verbose=1
+            )
+            early_stop = EarlyStopping(
+                monitor="val_loss",
+                patience=5,
+                restore_best_weights=True,
+                verbose=1
+            )
 
-        # Define callbacks
-        checkpoint = ModelCheckpoint(
-            self.model_path,
-            monitor="val_accuracy",
-            save_best_only=True,
-            verbose=1
-        )
-        early_stop = EarlyStopping(
-            monitor="val_loss",
-            patience=5,
-            restore_best_weights=True,
-            verbose=1
-        )
+            history = self.model.fit(
+                self.train_gen,
+                validation_data=self.val_gen,
+                epochs=self.epochs,
+                callbacks=[checkpoint, early_stop]
+            )
 
-        logger.info("🚀 Starting training...")
-        history = self.model.fit(
-            self.train_gen,
-            validation_data=self.val_gen,
-            epochs=self.epochs,
-            callbacks=[checkpoint, early_stop]
-        )
-
-        logger.info(f"✅ Training complete. Best model saved at {self.model_path}")
-        return history
+            logger.info(f"✅ Training complete. Best model saved at {self.model_path}")
+            return history
+        except Exception as e:
+            logger.error(f"❌ Training failed: {e}")
+            raise e
