@@ -8,4 +8,3 @@ scipy
 pillow
 scikit-learn 
 facenet-pytorch
-sort-tracker-py

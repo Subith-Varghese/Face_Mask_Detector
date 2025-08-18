@@ -9,7 +9,22 @@ if __name__ == "__main__":
         choice = input("Your choice: ").strip().lower()
 
         if choice == "w":
-            predictor.face_detect_webcam()
+            while True:
+                cam_input = input(
+                    "Select webcam index (0 = built-in, 1 = external, etc.). "
+                    "Press Enter to use default [0]: "
+                ).strip()
+
+                if cam_input == "":
+                    cam_index = 0
+                    break
+                elif cam_input.isdigit() and int(cam_input) in [0, 1]:
+                    cam_index = int(cam_input)
+                    break
+                else:
+                    print("❌ Invalid input! Enter 0 or 1, or press Enter for default [0].")
+
+            predictor.face_detect_webcam(cam_index=cam_index)
             break
 
         elif choice == "p":
