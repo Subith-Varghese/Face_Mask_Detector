@@ -17,7 +17,7 @@ The system can detect whether a person is wearing a **mask** or **no mask** from
 ---
 
 ## 📂 Project Structure
-  
+```  
   face_mask_detector/
   │── data/ # Dataset directory
   │── models/ # Saved trained models
@@ -46,3 +46,4 @@ The system can detect whether a person is wearing a **mask** or **no mask** from
   │── app.py # Flask web app
   │── requirements.txt # Python dependencies
   │── README.md # Project documentation
+```
