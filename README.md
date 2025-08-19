@@ -1,7 +1,13 @@
-#  Face Mask Detection (Deep Learning + Flask + OpenCV)
+#  🩺 Face Mask Detection (Deep Learning + Flask + OpenCV)
+
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)]()
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)]()
+[![Flask](https://img.shields.io/badge/Flask-2.x-green)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A complete end-to-end project for **real-time face mask detection** using **Deep Learning (MobileNetV2)**, **MTCNN (Face Detection)**, and a **Flask Web App**.  
 The system can detect whether a person is wearing a **mask** or **no mask** from images or webcam in real time.  
+
 
 ---
 
@@ -85,9 +91,9 @@ Visit 👉 http://127.0.0.1:5000/
  in your browser.
 ---
 🖥️ Usage
-- Home Page: Choose to upload an image or use webcam.
-- Upload Image: Upload an image, model detects faces & masks, annotated image shown on screen.
-- Webcam Detection: Select webcam index (0 = default, 1 = external) → start live detection.
+- Home Page:→ Choose to upload an image or use webcam.
+- Upload Image:→ Upload an image, model detects faces & masks, annotated image shown on screen.
+- Webcam Detection:→ Select webcam index (0 = default, 1 = external) → start live detection.
 
 ---
 🔄 Project Flow
@@ -138,16 +144,6 @@ A complete end-to-end project for **real-time face mask detection** using **Deep
 The system can detect whether a person is wearing a **mask** or **no mask** from images or webcam in real time.  
 
 ---
+📜 License
 
-## 🚀 Features
-- 📥 **Automatic dataset download** from Kaggle  
-- 🖼️ **Image upload** for mask detection  
-- 🎥 **Real-time webcam detection** with OpenCV  
-- 🧑‍💻 **Deep learning model** using MobileNetV2 (transfer learning)  
-- 📊 **Data augmentation & preprocessing** with TensorFlow/Keras  
-- 📝 **Logging support** for debugging and monitoring  
-- 🌐 **Flask web interface** with HTML templates  
-
----
-
-## 📂 Project Structure
+This project is licensed under the MIT License.
