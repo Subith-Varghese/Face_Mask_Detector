@@ -66,3 +66,13 @@ python -m venv venv
 source venv/bin/activate   # On Linux/Mac
 venv\Scripts\activate      # On Windows
 ```
+---
+3️⃣ Install dependencies
+```
+pip install -r requirements.txt
+```
+---
+4️⃣ Run training pipeline (optional if model not trained)
+```
+python src/pipeline/train_pipeline.py
+```
