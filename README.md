@@ -91,18 +91,37 @@ Visit 👉 http://127.0.0.1:5000/
 
 ---
 🔄 Project Flow
-``
+```
 flowchart TD
     A[Start] --> B[Download Dataset from Kaggle]
     B --> C[Data Ingestion: Train/Val/Test Generators]
     C --> D[Build CNN Model: MobileNetV2 + Custom Layers]
     D --> E[Train Model: Checkpoint + EarlyStopping]
     E --> F[Save Best Model]
+
     F --> G[Prediction Phase]
     G --> H{Choose Mode}
     H -->|Upload Image| I[Face Detection with MTCNN + Mask Prediction]
-    I -->|Webcam| J[Real-time Face Detection + Mask Prediction]
-    J --> K[Annotated Image Returned]
-    K --> K
-    L --> L[Flask Web App Displays Result]
-``
+    H -->|Webcam| J[Real-time Face Detection + Mask Prediction]
+
+    I --> K[Annotated Image Returned]
+    J --> K
+    K --> L[Flask Web App Displays Result]
+
+```
+---
+🛠️ Tech Stack
+
+- Python
+- TensorFlow / Keras – Deep Learning
+- OpenCV – Image processing
+- MTCNN (facenet-pytorch) – Face detection
+- Flask – Web application
+- HTML/CSS – Frontend templates
+
+---
+📊 Example Outputs
+
+- ✅ Green box → Mask detected
+- ❌ Red box → No Mask
+- ⚠️ Yellow box → Unknown (low confidence mask)
