@@ -76,3 +76,33 @@ pip install -r requirements.txt
 ```
 python src/pipeline/train_pipeline.py
 ```
+---
+5️⃣ Run Flask app
+```
+python app.py
+```
+Visit 👉 http://127.0.0.1:5000/
+ in your browser.
+---
+🖥️ Usage
+- Home Page: Choose to upload an image or use webcam.
+- Upload Image: Upload an image, model detects faces & masks, annotated image shown on screen.
+- Webcam Detection: Select webcam index (0 = default, 1 = external) → start live detection.
+
+---
+🔄 Project Flow
+``
+flowchart TD
+    A[Start] --> B[Download Dataset from Kaggle]
+    B --> C[Data Ingestion: Train/Val/Test Generators]
+    C --> D[Build CNN Model: MobileNetV2 + Custom Layers]
+    D --> E[Train Model: Checkpoint + EarlyStopping]
+    E --> F[Save Best Model]
+    F --> G[Prediction Phase]
+    G --> H{Choose Mode}
+    H -->|Upload Image| I[Face Detection with MTCNN + Mask Prediction]
+    I -->|Webcam| J[Real-time Face Detection + Mask Prediction]
+    J --> K[Annotated Image Returned]
+    K --> K
+    L --> L[Flask Web App Displays Result]
+``
